@@ -8,8 +8,8 @@ import { Product } from 'src/app/model/product';
 })
 export class ProductService {
   
-  private readonly BASE_URL = 'https://628d3321a3fd714fd040dac4.mockapi.io/products';
-  
+  private readonly BASE_URL = 'https://628d3321a3fd714fd040dac4.mockapi.io/products'; 
+
   
   constructor(private http: HttpClient){} 
   
@@ -25,4 +25,5 @@ export class ProductService {
     const url = this.BASE_URL + '/' + id;  
     return this.http.get<Product>(url);
   } 
+
 }

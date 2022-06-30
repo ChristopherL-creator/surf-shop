@@ -8,8 +8,8 @@
             <option value="">Mute</option> 
             <option value="">Abbigliamento</option>
         </select> 
-        <button>Ordina per prezzo</button> 
-        <button>Ordine alfabetico</button> 
+        <button (click)="orderProductsByPrice()">Ordina per prezzo</button> 
+        <button (click)="orderProductsByName()">Ordine alfabetico</button> 
         <button (click)="getAllProducts()">Annulla</button>
     </div>
     <app-product-card *ngFor="let product of products" [selectedProduct]="product"> </app-product-card>

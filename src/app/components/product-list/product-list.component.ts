@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/model/product';
+import { compareProductsByName, compareProductsByPrice, Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/products/product.service';
 
 @Component({
@@ -32,6 +32,15 @@ export class ProductListComponent implements OnInit {
       next: products => this.products = products, 
       error: err => console.log(err)
     })
-  }
+  } 
 
+  orderProductsByName(){
+    this.products.sort(compareProductsByName);
+ // richiamo funzione statica "compareBy..." da todo-class.ts
+  } 
+
+  orderProductsByPrice(){ 
+    this.products.sort(compareProductsByPrice)
+  }
+  
 }
