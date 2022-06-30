@@ -7,23 +7,32 @@ import { Product } from 'src/app/model/product';
   providedIn: 'root'
 })
 export class ProductService {
-  
-  private readonly BASE_URL = 'https://628d3321a3fd714fd040dac4.mockapi.io/products'; 
 
-  
-  constructor(private http: HttpClient){} 
-  
-  getProducts(searchString?: string): Observable<Product[]>{ 
-    let url = this.BASE_URL; 
+  private readonly BASE_URL = 'https://628d3321a3fd714fd040dac4.mockapi.io/products';
+
+
+  constructor(private http: HttpClient){}
+
+  getProducts(searchString?: string): Observable<Product[]>{
+    let url = this.BASE_URL;
     if (searchString) {
       url = this.BASE_URL + '?name=' + searchString
-    } 
+    }
     return this.http.get<Product[]>(url);
-  } 
+  }
+
+  getCategories(value?: string): Observable<Product[]>{
+    let url = this.BASE_URL;
+    if (value) {
+      url = this.BASE_URL + '?category=' + value
+    }
+    return this.http.get<Product[]>(url);
+  }
+
 
   getProductById(id: string): Observable<Product> {
-    const url = this.BASE_URL + '/' + id;  
+    const url = this.BASE_URL + '/' + id;
     return this.http.get<Product>(url);
-  } 
+  }
 
 }
