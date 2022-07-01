@@ -10,13 +10,17 @@ export class ProductService {
 
   private readonly BASE_URL = 'https://628d3321a3fd714fd040dac4.mockapi.io/products';
 
-
   constructor(private http: HttpClient){}
 
-  getProducts(searchString?: string): Observable<Product[]>{
-    let url = this.BASE_URL;
+  getProducts(searchString?: string, category?: string): Observable<Product[]>{
+    let url = this.BASE_URL + '?'; 
+    // così ci da tutti gli elementi
     if (searchString) {
-      url = this.BASE_URL + '?name=' + searchString
+      url +='&name=' + searchString;
+    } 
+    
+    if (category) {
+      url += '&category=' + category;
     }
     return this.http.get<Product[]>(url);
   }

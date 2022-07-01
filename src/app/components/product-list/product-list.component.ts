@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { compareProductsByName, compareProductsByPrice, Product } from 'src/app/model/product';
+import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/products/product.service';
 
 @Component({
@@ -11,8 +11,9 @@ export class ProductListComponent implements OnInit {
 
   public products: Product[] = [];
 
-  categories: Product[] = [];
+  public searchString: string = ''; 
 
+  public selectedCategory: string = '';
 
   constructor( private pServ: ProductService) { }
 
@@ -21,10 +22,11 @@ export class ProductListComponent implements OnInit {
   }
 
   search(){
-    const input = document.getElementById('search-input') as HTMLInputElement;
+    // const input = document.getElementById('search-input') as HTMLInputElement;
     // non è sicuro che possa ricevere sempre un id, quindi la converto in htmlinput
-    const searchString = input!.value.trim().toLowerCase();
-    this.pServ.getProducts(searchString).subscribe({
+    // this.searchString = input!.value.trim().toLowerCase(); 
+    this.selectedCategory = '';
+    this.pServ.getProducts(this.searchString).subscribe({
       next: products => this.products = products,
       error: err => console.log(err)
     })
@@ -37,12 +39,25 @@ export class ProductListComponent implements OnInit {
     })
   }
 
-  orderProductsByName(){
-    this.products.sort(compareProductsByName);
-    // richiamo funzione statica "compareBy..." da todo-class.ts
+  orderProductsByName(){ 
+    this.products.sort((p1, p2) => p1.name.localeCompare(p2.name));
+    // this.products.sort(compareProductsByName);
   }
-
+  
   orderProductsByPrice(){
-    this.products.sort(compareProductsByPrice)
+    this.products.sort((p1, p2) => p1.price - p2.price);
+    // this.products.sort(compareProductsByPrice)
+  } 
+
+  filterByCategory(){ 
+    // const select = document.getElementById("category-select") as HTMLSelectElement; 
+    // non serve che richiami tramite geelementbyid, perché ho usato # in html
+    // console.log(value); 
+    this.searchString = '';
+    this.pServ.getProducts(undefined, this.selectedCategory).subscribe({  
+      // chiamo funzione tramite pServ, perchè qui non c'è
+      next: products => this.products = products, 
+      error: err => console.log(err)
+    });
   }
 }

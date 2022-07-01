@@ -8,13 +8,13 @@ export interface Product{
     id: string;
 }
 
-export function compareProductsByName(a: Product, b: Product){
-    return a.name.localeCompare(b.name);
-}
+// export function compareProductsByName(a: Product, b: Product){
+//     return a.name.localeCompare(b.name);
+// }
 
-export function compareProductsByPrice(a: Product, b: Product){
-    return a.price - b.price;
-}
+// export function compareProductsByPrice(a: Product, b: Product){
+//     return a.price - b.price;
+// }
 
 
 

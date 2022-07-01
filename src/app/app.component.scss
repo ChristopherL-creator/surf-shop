@@ -8,4 +8,14 @@ footer{
     background-color: #313131; 
     color: whitesmoke; 
     padding: 16px;
+} 
+
+nav{ 
+    display: flex; 
+    gap: 8px;
+} 
+
+nav a { 
+    color: whitesmoke;
+    font-size: large;
 }

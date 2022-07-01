@@ -1,12 +1,12 @@
 <div class="container">
     <div>
-        <input id="search-input" type="text">
+        <input [(ngModel)]="searchString" id="search-input" type="text">
         <button (click)="search()">Ok</button>
-        <select name="" id="category-select">
+        <select [(ngModel)]="selectedCategory" #categorySelect (change)="filterByCategory()" name="" id="category-select">
             <option value="">Tutti i prodotti</option>
-            <option value="">Tavole</option>
-            <option value="">Mute</option>
-            <option value="">Abbigliamento</option>
+            <option value="tavole">Tavole</option>
+            <option value="mute">Mute</option>
+            <option value="abbigliamento">Abbigliamento</option>
         </select>
         <button (click)="orderProductsByPrice()">Ordina per prezzo</button>
         <button (click)="orderProductsByName()">Ordine alfabetico</button>

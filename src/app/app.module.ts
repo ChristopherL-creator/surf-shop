@@ -8,7 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 
 
 
@@ -17,14 +21,18 @@ import {MatSelectModule} from '@angular/material/select';
     AppComponent,
     ProductListComponent,
     ProductCardComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSelectModule
+    MatSelectModule, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
