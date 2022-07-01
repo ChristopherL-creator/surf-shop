@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
 
 
   registerObjectToArray(){
+    
     type MyRegisterResponse = { [key: string]: User };
 
     let result = Object.entries(this.profileForm.value as MyRegisterResponse).map(([key, value]) => {
@@ -47,3 +48,4 @@ export class RegisterComponent implements OnInit {
 
 
 }
+
