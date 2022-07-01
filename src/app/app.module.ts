@@ -9,7 +9,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
@@ -32,7 +32,8 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
     HttpClientModule,
     BrowserAnimationsModule,
     MatSelectModule, 
-    FormsModule
+    FormsModule, 
+    ReactiveFormsModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

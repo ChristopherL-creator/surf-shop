@@ -36,4 +36,9 @@ export class UserService {
   logout() {
     this.user = undefined;
   } 
+
+  register(user: User){ 
+    // post; tramite router, rimanda utente a login 
+    this.router.navigate(['/login']);
+  }
 }
