@@ -2,7 +2,8 @@
   <h1>{{title}}</h1> 
   <nav> 
     <a routerLink="/product">Prodotti</a> 
-    <a routerLink="/login">Login</a>
+    <a *ngIf="!userS.user" routerLink="/login">Login</a> 
+    <a *ngIf="userS.user" (click)="logout()">Logout</a> 
     <a routerLink="/register">Registrati</a>
     <a routerLink="/user">Utente</a>
   </nav>

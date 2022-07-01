@@ -1,1 +1,11 @@
-<p>user-detail works!</p>
+<div class="container" *ngIf="userS.user"> 
+    <span>Username: {{userS.user.username}}</span> 
+    <span>First Name: {{userS.user.name}}</span>
+    <span>Last Name: {{userS.user.surname}}</span>
+    <span>Date of birth: {{userS.user.dob}}</span>
+    <span>Email: {{userS.user.email}}</span>
+    <span>Password: {{userS.user.password}}</span>
+    <span>Address: {{userS.user.address}}</span>
+    <span>City: {{userS.user.city}}</span> 
+    <span>Payment Card Number: {{userS.user.cardNumber}}</span> 
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './services/user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'surf-shop';
+  title = 'surf-shop'; 
+
+  constructor(public userS: UserService){} 
+
+  logout(){
+    this.userS.logout();
+  }
 }
