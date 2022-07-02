@@ -1,7 +1,7 @@
 <h2>Registrazione Nuovo Utente</h2>
 
 <div >
-  <form class="register-container" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <form class="register-container" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <label for="username-form">Username: </label>
     <input id="username-form-id" type="text" formControlName="username">
     <label for="name">Name: </label>

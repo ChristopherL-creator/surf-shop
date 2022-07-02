@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UserService } from "src/app/services/user/user.service";
 import { User } from 'src/app/model/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +11,7 @@ import { User } from 'src/app/model/user';
 })
 export class RegisterComponent implements OnInit {
 
-  profileForm = new FormGroup({
+  registerForm = new FormGroup({
     username: new FormControl(' '),
     name: new FormControl(' '),
     surname: new FormControl(' '),
@@ -19,33 +21,23 @@ export class RegisterComponent implements OnInit {
     address: new FormControl(' '),
     city: new FormControl(' '),
     cardNumber: new FormControl(' '),
-  })
+})
 
 
-  constructor() { }
+  constructor(private userS: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    this.registerObjectToArray();
-  }
+    // console.log(this.registerForm.value);
+    this.userS.saveUsersData(this.registerForm.value).subscribe((result) => {
+      console.log(result);
+      this.router.navigate(['/login']);
 
-
-  registerObjectToArray(){
-    
-    type MyRegisterResponse = { [key: string]: User };
-
-    let result = Object.entries(this.profileForm.value as MyRegisterResponse).map(([key, value]) => {
-      return {
-        ...value,
-        id: key,
-      }
     });
-    console.log(result);
   }
-
 
 }
 
