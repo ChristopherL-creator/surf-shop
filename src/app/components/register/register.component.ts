@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+  hide = true;
+
   registerForm = new FormGroup({
     username: new FormControl(' '),
     name: new FormControl(' '),
