@@ -1,1 +1,29 @@
-<p>register works!</p>
+<h2>Registrazione Nuovo Utente</h2>
+
+<div >
+  <form class="register-container" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label for="username-form">Username: </label>
+    <input id="username-form-id" type="text" formControlName="username">
+    <label for="name">Name: </label>
+    <input id="name-form-id" type="text" formControlName="name">
+    <label for="surname">Surname: </label>
+    <input id="surname-form-id" type="text" formControlName="surname">
+    <label for="dob">Date of birth: </label>
+    <input id="dob-form-id" type="date" formControlName="dob">
+    <label for="email">Email: </label>
+    <input id="email-form-id" type="email" formControlName="email">
+    <label for="password">Password: </label>
+    <input id="password-form-id" type="text" formControlName="password">
+    <label for="address">Address: </label>
+    <input id="address-form-id" type="text" formControlName="address">
+    <label for="city">City: </label>
+    <input id="city-form-id" type="text" formControlName="city">
+    <label for="cardNumber">Card number: </label>
+    <input id="cardNumber-form-id" type="number" formControlName="cardNumber">
+    <p>Complete the form to enable button.</p>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+
+
