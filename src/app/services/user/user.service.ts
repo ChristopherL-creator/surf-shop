@@ -40,12 +40,5 @@ export class UserService {
   saveUsersData(data: any){
     console.log(data);
     return this.http.post(this.BASE_URL, data);
-
-  }
-
-
-  register(user: User){
-    // this.router.navigate(['/login']);
-    // post; tramite router, rimanda utente a login
   }
 }
